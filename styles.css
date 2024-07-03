@@ -8,8 +8,13 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    margin: 5px;
 }
 
-p {
+p, h2, h3 {
     font-size: 18px;
+}
+
+#jogo {
+    margin-top: 20px;
 }
