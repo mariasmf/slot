@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogos Simples</title>
+    <title>Pedra, Papel, Tesoura</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Bem-vindo aos Jogos Simples!</h1>
-    <nav>
-        <button onclick="mostrarJogo('slots')">Jogo de Slots</button>
-        <button onclick="mostrarJogo('adivinhacao')">Adivinhação de Número</button>
-        <button onclick="mostrarJogo('pedraPapelTesoura')">Pedra, Papel e Tesoura</button>
-        <button onclick="mostrarJogo('memoria')">Jogo da Memória</button>
-        <button onclick="mostrarJogo('roleta')">Roleta</button>
-        <button onclick="mostrarJogo('jogoDaVelha')">Jogo da Velha</button>
-    </nav>
-    <div id="jogo"></div>
-    <script src="script.js"></script>
-</body>
-</html>
+    <h1>Pedra, Papel, Tesoura</h1>
+    <p>Escolha: </p>
+    <button onclick="jogar('Pedra')">Pedra</button>
+    <button onclick="jogar('Papel')">Papel</button>
+    <button onclick="jogar('Tesoura')">Tesoura</button>
+    <p id="resultado"></p>
+    <script>
+        function jogar(escolhaUsuario) {
+            const escolhas = ['Pedra', 'Papel', 'Tesoura'];
+            const escolhaComputador = escolhas[Math.floor(Math.random() * 3)];
+            let resultado = '';
+
+            if (escolhaUsuario === escolhaComputador) {
+                resultado = 'Empate!';
+            } else if ((escolhaUsuario === 'Pedra' && escolhaComputador === 'Tesoura') ||
+                       (escolhaUsuario === 'Papel' && escolhaComputador === 'Pedra') ||
+                       (escolhaUsuario === 'Tesoura' && escolhaComputador === '
