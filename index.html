@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo de Slots</title>
+    <title>Jogos Simples</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="jogoSlots()">
-    <h1>Bem-vindo ao Jogo de Slots!</h1>
-    <p id="saldo"></p>
-    <p id="resultado"></p>
-    <button id="girar">Girar</button>
+<body>
+    <h1>Bem-vindo aos Jogos Simples!</h1>
+    <nav>
+        <button onclick="mostrarJogo('slots')">Jogo de Slots</button>
+        <button onclick="mostrarJogo('adivinhacao')">Adivinhação de Número</button>
+        <button onclick="mostrarJogo('pedraPapelTesoura')">Pedra, Papel e Tesoura</button>
+        <button onclick="mostrarJogo('memoria')">Jogo da Memória</button>
+        <button onclick="mostrarJogo('roleta')">Roleta</button>
+        <button onclick="mostrarJogo('jogoDaVelha')">Jogo da Velha</button>
+    </nav>
+    <div id="jogo"></div>
     <script src="script.js"></script>
 </body>
 </html>
