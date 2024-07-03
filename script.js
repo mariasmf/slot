@@ -1,40 +1,44 @@
-// Função para girar os rolos do slot
-function girarRolo() {
-    const simbolos = ["🍒", "🍋", "🔔", "⭐", "🍀", "💎", "7"];
-    let rolo = [];
-    for (let i = 0; i < 3; i++) {
-        rolo.push(simbolos[Math.floor(Math.random() * simbolos.length)]);
+// Função para mostrar o jogo selecionado
+function mostrarJogo(jogo) {
+    const container = document.getElementById('jogo');
+    container.innerHTML = '';
+
+    switch (jogo) {
+        case 'slots':
+            jogoSlots(container);
+            break;
+        case 'adivinhacao':
+            jogoAdivinhacao(container);
+            break;
+        case 'pedraPapelTesoura':
+            jogoPedraPapelTesoura(container);
+            break;
+        case 'memoria':
+            jogoMemoria(container);
+            break;
+        case 'roleta':
+            jogoRoleta(container);
+            break;
+        case 'jogoDaVelha':
+            jogoDaVelha(container);
+            break;
+        default:
+            container.innerHTML = 'Selecione um jogo';
     }
-    return rolo;
 }
 
-// Função para verificar se o jogador ganhou
-function verificarGanho(rolo) {
-    return rolo[0] === rolo[1] && rolo[2];
-}
+// Jogo de Slots
+function jogoSlots(container) {
+    let saldo = 100;
 
-// Função principal do jogo de slots
-function jogoSlots() {
-    let saldo = 100; // Saldo inicial do jogador
-    document.getElementById("saldo").innerText = `Seu saldo inicial é: ${saldo}`;
+    const saldoP = document.createElement('p');
+    saldoP.id = 'saldo';
+    saldoP.innerText = `Seu saldo inicial é: ${saldo}`;
+    container.appendChild(saldoP);
 
-    document.getElementById("girar").onclick = function() {
-        let rolo = girarRolo();
-        document.getElementById("resultado").innerText = `Resultado dos rolos: ${rolo.join(" ")}`;
-        
-        if (verificarGanho(rolo)) {
-            alert("Parabéns! Você ganhou!");
-            saldo += 50;
-        } else {
-            alert("Tente novamente!");
-            saldo -= 10;
-        }
+    const resultadoP = document.createElement('p');
+    resultadoP.id = 'resultado';
+    container.appendChild(resultadoP);
 
-        document.getElementById("saldo").innerText = `Seu saldo atual é: ${saldo}`;
-
-        if (saldo <= 0) {
-            alert("Seu saldo acabou. Fim de jogo!");
-            document.getElementById("girar").disabled = true;
-        }
-    };
-}
+    const girarBtn = document.createElement('button');
+    girarBtn.innerText = '
